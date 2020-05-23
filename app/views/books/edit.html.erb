@@ -1,0 +1,25 @@
+<h1>Editing Book</h1>
+
+
+<%= form_for(@booker) do |f| %>
+<% if @booker.errors.any? %>
+  <div id="error_explanation" class="alert alert-danger">
+    <ul>
+      <li>error</li>
+      <% @booker.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+	<h4>Title</h4>
+	<%= f.text_field :title %>
+	<h4>Body</h4>		
+	<%= f.text_area :body %>
+	<%= f.submit 'Update Book' %>	
+<% end %> 
+
+ 
+<%= link_to 'Show', book_path(@booker) %>
+<%= link_to 'Back', books_path %>
